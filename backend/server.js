@@ -7,13 +7,11 @@ const PORT = process.env.PORT || 3000;
 // Middleware to log IP
 app.use((req, res, next) => {
   const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
-  const logEntry = `${new Date().toISOString()} - IP: ${ip}\n`;
-
-  console.log(logEntry); // Logs to console
-  fs.appendFileSync("ip-log.txt", logEntry); // Logs to a file
+  console.log(`IP Logged: ${ip}`);  // This should show in the logs
 
   next();
 });
+
 
 // Serve a simple webpage
 app.get("/", (req, res) => {
