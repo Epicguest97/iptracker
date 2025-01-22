@@ -8,7 +8,6 @@ const PORT = process.env.PORT || 3000;
 app.use((req, res, next) => {
   const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
   console.log(`IP Logged: ${ip}`);  // This should show in the logs
-
   next();
 });
 
