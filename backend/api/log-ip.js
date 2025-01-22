@@ -12,7 +12,7 @@ async function connectToDatabase() {
   }
 
   const client = await MongoClient.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-  const db = client.db('ip-logs');
+  const db = client.db('ip');
 
   cachedClient = client;
   cachedDb = db;
